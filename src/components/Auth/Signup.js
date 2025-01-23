@@ -10,7 +10,9 @@ const Signup = () => {
     // console.log("********")
     e.preventDefault();
     try {
-      await signup(formData);
+      const {data} =await signup(formData);
+      console.log(data)
+      localStorage.setItem("token", data.token);
       navigate("/dashboard");
     } catch (err) {
       alert("Signup failed.");
